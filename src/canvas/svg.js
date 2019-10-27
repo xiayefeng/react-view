@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 const DEFAULT_PROPS = {
-  style: { stroke: "red", strokeWidth: 1 }
+  style: { stroke: "red", strokeWidth: 1, rx: 4 }
 };
 
-class Svg extends Component {
+export class Svg extends Component {
   render() {
     return (
       <svg
@@ -19,10 +19,23 @@ class Svg extends Component {
   }
 }
 
-class Circle extends Component {
+export class Circle extends Component {
   static defaultProps = DEFAULT_PROPS;
   render() {
     return <circle {...this.props}></circle>;
+  }
+}
+
+export class Rect extends Component {
+  static defaultProps = DEFAULT_PROPS;
+  render() {
+    return <rect {...this.props} />;
+  }
+}
+
+export class Text extends Component {
+  render() {
+    return <text {...this.props}>{this.props.children}</text>;
   }
 }
 
@@ -33,7 +46,7 @@ class Ellipse extends Component {
   }
 }
 
-class Line extends Component {
+export class Line extends Component {
   static defaultProps = DEFAULT_PROPS;
   get start() {
     return this.props.children[0].props;
@@ -54,13 +67,13 @@ class Line extends Component {
   }
 }
 
-class Point extends Component {
+export class Point extends Component {
   render() {
     return null;
   }
 }
 
-class PolyLine extends Component {
+export class PolyLine extends Component {
   static defaultProps = DEFAULT_PROPS;
   render() {
     const points = this.props.children

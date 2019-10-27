@@ -79,7 +79,7 @@ class Path extends Component {
   }
 }
 
-class Rect extends Component {
+export class Rect extends Component {
   static contextTypes = {
     ctx: PropTypes.object
   };
